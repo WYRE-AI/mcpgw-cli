@@ -33,9 +33,9 @@
     "picocolors": "^1.1.1"
   },
   "devDependencies": {
-    "@types/node": "^26.1.2",
+    "@types/node": "^26.2.0",
     "tsup": "^8.3.5",
-    "tsx": "^4.23.5",
+    "tsx": "^4.23.12",
     "typescript": "^7.0.2",
     "vitest": "^2.1.8"
   },
