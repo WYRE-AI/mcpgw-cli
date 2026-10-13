@@ -24,6 +24,15 @@ function captureStdout(fn: () => Promise<unknown>) {
 describe("cli", () => {
   let dir: string;
   beforeEach(() => {
+    // vitest's module runner (v3+) caches a statically-imported child (e.g.
+    // cli.js's own `import ... from "./config.js"`) by its unversioned
+    // specifier even when the entry module is re-imported with a cache-busting
+    // `?t=` query — so config.js's load-time CONFIG_DIR constant would freeze
+    // on the first test's tmpdir and every later test would read/write the
+    // wrong directory. vi.resetModules() clears the whole registry so each
+    // test's dynamic import re-evaluates the full dependency graph, including
+    // children, against the env var set just below.
+    vi.resetModules();
     dir = mkdtempSync(join(tmpdir(), "mcpgw-cli-"));
     process.env.MCPGW_CONFIG_DIR = dir;
     process.env.NO_COLOR = "1";
