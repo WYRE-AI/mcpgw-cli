@@ -1,5 +1,5 @@
 {
-  "name": "@wyre-technology/mcpgw",
+  "name": "@wyre-ai/mcpgw",
   "version": "0.1.0",
   "description": "CLI for discovering and using tools in the MCP Gateway",
   "type": "module",
@@ -22,7 +22,12 @@
   "engines": {
     "node": ">=20"
   },
-  "keywords": ["mcp", "cli", "gateway", "wyre"],
+  "keywords": [
+    "mcp",
+    "cli",
+    "gateway",
+    "wyre"
+  ],
   "author": "Wyre Technology",
   "license": "Apache-2.0",
   "repository": {
